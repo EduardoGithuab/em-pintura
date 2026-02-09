@@ -1,7 +1,8 @@
-body{font-family:Arial;margin:0;background:#f8fafc}
-header{background:#1e293b;color:#fff;padding:15px;display:flex;gap:15px}
-.logo{width:50px}
+body{font-family:Arial;margin:0;background:#f1f5f9}
+header{background:#1e293b;color:#fff;padding:20px;text-align:center}
+header a{color:#93c5fd;text-decoration:none}
 main{padding:20px}
-input,select,button{width:100%;padding:10px;margin-bottom:10px}
-button{background:#2563eb;color:#fff;border:none;border-radius:5px}
-ul{padding-left:20px}
+input,label,button{width:100%;margin-bottom:10px}
+button{padding:12px;background:#2563eb;color:#fff;border:none;border-radius:6px}
+#resultado{margin-top:20px;font-size:18px;font-weight:bold}
+@media print{button,input,label{display:none}}

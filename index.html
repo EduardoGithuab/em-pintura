@@ -2,63 +2,38 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<title>Orçamento de Pintura</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EM Pintura – Orçamentos</title>
-<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <img src="icon-192.png" class="logo">
-  <div>
-    <h1>EM Pintura – Orçamentos</h1>
-    <p>
-      📞 <a href="tel:+5588920001908">88 92000-1908</a><br>
-      💬 <a href="https://wa.me/5588920001908">WhatsApp</a><br>
-      ✉️ <a href="mailto:emendes.cr45@gmail.com">emendes.cr45@gmail.com</a><br>
-      📸 <a href="https://instagram.com/empintura">@empintura</a>
-    </p>
-  </div>
+<h1>Orçamento de Pintura</h1>
+<p>
+📞 <a href="tel:+5588920001908">88 92000-1908</a> |
+💬 <a href="https://wa.me/5588920001908">WhatsApp</a><br>
+✉️ <a href="mailto:emendes.cr45@gmail.com">emendes.cr45@gmail.com</a> |
+📸 <a href="https://instagram.com/empintura">@empintura</a>
+</p>
 </header>
 
 <main>
-<h2>Dados do Cliente</h2>
-<input id="clienteNome" placeholder="Nome do cliente">
-<input id="clienteEndereco" placeholder="Endereço">
+<input id="cliente" placeholder="Nome do cliente">
+<input id="endereco" placeholder="Endereço da obra">
+<input id="interna" type="number" placeholder="Área interna (m²)">
+<input id="externa" type="number" placeholder="Área externa (m²)">
 
-<h2>Configuração de Preços</h2>
-<input id="pInterno" placeholder="Interno R$">
-<input id="pExterno" placeholder="Externo R$">
-<input id="pRetoque" placeholder="Retoque R$">
-<input id="pMassa" placeholder="Massa R$">
-<button onclick="salvarPrecos()">Salvar preços</button>
+<label><input type="checkbox" id="retoque" onclick="alternar('retoque')"> Retoque leve (R$25/m²)</label>
+<label><input type="checkbox" id="massa" onclick="alternar('massa')"> Massa acrílica (R$25/m²)</label>
+<input id="areaExtra" type="number" placeholder="Área de retoque/massa (m²)">
 
-<h2>Orçamento</h2>
-<input id="interna" placeholder="Área interna (m²)">
-<input id="externa" placeholder="Área externa (m²)">
-
-<select id="tipoPintura">
-<option value="simples">Pintura simples</option>
-<option value="premium">Pintura premium</option>
-</select>
-
-<label><input type="checkbox" id="retoque" onclick="controleMassa('retoque')"> Retoque leve</label>
-<label><input type="checkbox" id="massa" onclick="controleMassa('massa')"> Massa completa</label>
-<input id="areaMassa" placeholder="Área com massa (m²)">
-<input id="desconto" placeholder="Desconto R$">
 <input id="prazo" placeholder="Prazo (dias)">
 
 <button onclick="calcular()">Calcular</button>
-<button onclick="salvarCliente()">Salvar Cliente</button>
+<button onclick="window.print()">Salvar em PDF</button>
 
-<pre id="resultado"></pre>
-
-<h2>Clientes salvos</h2>
-<ul id="listaClientes"></ul>
-
-<div id="mapa"></div>
-
+<div id="resultado"></div>
 </main>
 
 <script src="script.js"></script>
