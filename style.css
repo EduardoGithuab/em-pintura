@@ -1,0 +1,7 @@
+body{font-family:Arial;margin:0;background:#f8fafc}
+header{background:#1e293b;color:#fff;padding:15px;display:flex;gap:15px}
+.logo{width:50px}
+main{padding:20px}
+input,select,button{width:100%;padding:10px;margin-bottom:10px}
+button{background:#2563eb;color:#fff;border:none;border-radius:5px}
+ul{padding-left:20px}
