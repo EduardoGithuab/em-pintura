@@ -1,56 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Em Pintura</title>
-<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
-<div id="login">
-<h2>Login - Em Pintura</h2>
-<input type="password" id="senha" placeholder="Digite a senha">
-<button onclick="login()">Entrar</button>
+<div class="login" id="login">
+  <h2>Em Pintura - Acesso</h2>
+  <input type="password" id="senha" placeholder="Digite a senha">
+  <button onclick="entrar()">Entrar</button>
 </div>
 
-<div id="app" style="display:none;">
+<div class="app" id="app" style="display:none;">
+  <header>
+    <h1>EM PINTURA</h1>
+    <p>Telefone: 88 92000-1908</p>
+    <p>Email: emendes.cr45@gmail.com</p>
+    <p>Instagram: @empintura</p>
+  </header>
 
-<header>
-<h1>Em Pintura</h1>
-<button onclick="toggleDark()">🌙</button>
-</header>
+  <main id="orcamento">
+    <h2>ORÇAMENTO</h2>
 
-<main>
-<label>Cliente</label>
-<input id="cliente">
+    <label>Cliente</label>
+    <input type="text" id="cliente">
 
-<label>Área Interna (R$25)</label>
-<input type="number" id="interna">
+    <label>Área Interna (m²)</label>
+    <input type="number" id="interna">
 
-<label>Área Externa (R$30)</label>
-<input type="number" id="externa">
+    <label>Área Externa (m²)</label>
+    <input type="number" id="externa">
 
-<label>Massa/Retoque (R$25)</label>
-<input type="number" id="massa">
+    <label>Forma de Pagamento</label>
+    <select id="pagamento">
+      <option value="pix">Pix/Dinheiro</option>
+      <option value="cartao">Cartão (+5%)</option>
+    </select>
 
-<label>Pagamento</label>
-<select id="pagamento">
-<option value="pix">Pix/Dinheiro</option>
-<option value="cartao">Cartão (+3%)</option>
-</select>
+    <button onclick="calcular()">Calcular</button>
 
-<button onclick="calcular()">Gerar Orçamento</button>
-<button onclick="window.print()">Salvar PDF</button>
+    <div class="resultado-box">
+      <p id="detalhes"></p>
+      <h3 id="resultado"></h3>
+    </div>
 
-<div id="resultado"></div>
-<div id="qrcode"></div>
+    <div class="qr-area">
+      <img id="qrcode" width="120">
+    </div>
 
-<h3>Relatório Mensal</h3>
-<div id="relatorio"></div>
-</main>
+    <button onclick="window.print()">Salvar PDF</button>
+    <button onclick="enviarWhatsApp()">Enviar WhatsApp</button>
+  </main>
+
+  <footer>
+    <p>Condições de pagamento: Pix, Dinheiro ou Cartão (+5%)</p>
+    <p>Assinatura: ____________________________</p>
+  </footer>
 
 </div>
 

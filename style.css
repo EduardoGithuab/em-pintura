@@ -1,7 +1,57 @@
-body{font-family:Arial;margin:0;padding:20px;background:#f1f5f9}
-h1{text-align:center}
-input,select,button{width:100%;padding:10px;margin:5px 0}
-button{background:#2563eb;color:#fff;border:none;border-radius:5px}
-.dark{background:#0f172a;color:#fff}
-.dark input,.dark select{background:#1e293b;color:#fff;border:1px solid #555}
-#qrcode{margin-top:20px;text-align:center}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f4f6f9;
+}
+
+header {
+  text-align: center;
+  background: #111827;
+  color: white;
+  padding: 20px;
+}
+
+main {
+  margin-top: 20px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.resultado-box {
+  background: #e5e7eb;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.qr-area {
+  text-align: center;
+  margin-top: 10px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+
+@media print {
+  button, .login {
+    display: none;
+  }
+  body {
+    background: white;
+  }
+}

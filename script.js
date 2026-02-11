@@ -1,48 +1,48 @@
-let senhaSistema='@1234';
-let faturamento=[];
 
-function login(){
- let s=document.getElementById('senha').value;
- if(s===senhaSistema){
-   document.getElementById('login').style.display='none';
-   document.getElementById('app').style.display='block';
- } else alert('Senha incorreta');
-}
+const senhaCorreta = "@123";
+let valorFinal = 0;
 
-function toggleDark(){
- document.body.classList.toggle('dark');
+function entrar(){
+  const senha = document.getElementById("senha").value;
+  if(senha === senhaCorreta){
+    document.getElementById("login").style.display = "none";
+    document.getElementById("app").style.display = "block";
+  } else {
+    alert("Senha incorreta");
+  }
 }
 
 function calcular(){
- let interna=Number(document.getElementById('interna').value)*25;
- let externa=Number(document.getElementById('externa').value)*30;
- let massa=Number(document.getElementById('massa').value)*25;
- let total=interna+externa+massa;
+  const interna = Number(document.getElementById("interna").value) || 0;
+  const externa = Number(document.getElementById("externa").value) || 0;
+  const pagamento = document.getElementById("pagamento").value;
 
- let pagamento=document.getElementById('pagamento').value;
- if(pagamento==='cartao'){ total*=1.03; }
+  const valorInterna = interna * 25;
+  const valorExterna = externa * 30;
+  const subtotal = valorInterna + valorExterna;
 
- document.getElementById('resultado').innerHTML='Valor Final: R$ '+total.toFixed(2);
+  valorFinal = subtotal;
+  if(pagamento === "cartao"){
+    valorFinal = subtotal * 1.05;
+  }
 
- faturamento.push({valor:total,data:new Date()});
- gerarRelatorio();
+  document.getElementById("detalhes").innerText =
+    `Interna: R$ ${valorInterna.toFixed(2)} | Externa: R$ ${valorExterna.toFixed(2)}`;
 
- document.getElementById('qrcode').innerHTML='';
- new QRCode(document.getElementById('qrcode'),{
-   text:'https://wa.me/5588920001908',
-   width:120,
-   height:120
- });
+  document.getElementById("resultado").innerText =
+    "VALOR FINAL: R$ " + valorFinal.toFixed(2);
+
+  gerarQR();
 }
 
-function gerarRelatorio(){
- let mesAtual=new Date().getMonth();
- let totalMes=0;
- faturamento.forEach(f=>{
-   if(new Date(f.data).getMonth()===mesAtual){
-     totalMes+=f.valor;
-   }
- });
- document.getElementById('relatorio').innerHTML=
- 'Faturamento do mês: R$ '+totalMes.toFixed(2);
+function gerarQR(){
+  const url = "https://wa.me/5588920001908";
+  document.getElementById("qrcode").src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(url);
+}
+
+function enviarWhatsApp(){
+  const cliente = document.getElementById("cliente").value;
+  const texto = `Olá ${cliente}, segue orçamento da Em Pintura. Valor total: R$ ${valorFinal.toFixed(2)}.`;
+  window.open("https://wa.me/5588920001908?text=" + encodeURIComponent(texto));
 }

@@ -1,0 +1,7 @@
+
+{
+  "appId": "com.empintura.app",
+  "appName": "Em Pintura",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
